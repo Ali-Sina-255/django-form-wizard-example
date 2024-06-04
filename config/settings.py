@@ -17,7 +17,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -31,6 +30,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap4",
     'formtools',
+    "phonenumber_field",
 ]
 
 MIDDLEWARE = [
@@ -118,3 +118,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+
+
+
+AUTH_USER_MODEL = 'core.User'

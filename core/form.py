@@ -1,5 +1,21 @@
+from typing import Any
 from django import forms
-from . models import Guest, Business, Booking
+from . models import Guest, Business, Booking, User
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username','password','phone_number']
+    
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data['password'])
+        if commit:
+            user.save()
+        return user
+    
+
 class GestDetailForm(forms.ModelForm):
     RADIO_SELECT = [(True,'Yes',),(False,'No')]
 

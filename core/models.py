@@ -1,6 +1,13 @@
+from django.contrib.auth.models import AbstractUser
+from phonenumber_field.modelfields import PhoneNumberField
+
 from django.db import models
 
 # Create your models here.
+
+class User(AbstractUser):
+    phone_number = PhoneNumberField()
+    
 class Business(models.Model):
     name = models.CharField(max_length=100)
 
